@@ -26,10 +26,7 @@ public class BookingController {
     public ResponseEntity<?> create(@RequestBody Booking booking) {
         Booking created = bookingService.create(booking);
         if (created == null) {
-            return ResponseEntity.badRequest().body(Map.of(
-                    "message",
-                    "Could not create booking. Need valid member userId, slot slotId, status, and bookingDateTime (yyyy-MM-dd'T'HH:mm:ss)."
-            ));
+            return ResponseEntity.badRequest().body(Map.of("message", "Could not create booking. Need valid member userId, slot slotId, status, and bookingDateTime (yyyy-MM-dd'T'HH:mm:ss)."));
         }
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
@@ -47,10 +44,7 @@ public class BookingController {
     public ResponseEntity<?> update(@RequestBody Booking booking) {
         Booking updated = bookingService.update(booking);
         if (updated == null) {
-            return ResponseEntity.badRequest().body(Map.of(
-                    "message",
-                    "Could not update booking. Confirm it exists and member/slot ids are valid."
-            ));
+            return ResponseEntity.badRequest().body(Map.of("message", "Could not update booking. Confirm it exists and member/slot ids are valid."));
         }
         return ResponseEntity.ok(updated);
     }

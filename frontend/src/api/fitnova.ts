@@ -4,7 +4,7 @@ import type {
     Account,
     Address,
     AvailabilitySlot,
-    Booking,
+    Booking, BookingStatus,
     Contact,
     Demographic,
     Gender,
@@ -128,7 +128,7 @@ export const bookingsApi = {
         api.get<Booking[]>(`/booking/findByMember/${userId}`),
     bySlot: (slotId: string) =>
         api.get<Booking[]>(`/booking/findBySlot/${slotId}`),
-    byStatus: (status: string) =>
+    byStatus: (status: BookingStatus) =>
         api.get<Booking[]>(`/booking/findByStatus/${status}`),
 };
 

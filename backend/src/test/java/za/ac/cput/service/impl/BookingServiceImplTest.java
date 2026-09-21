@@ -165,7 +165,4 @@ class BookingServiceImplTest {
         assertNotNull(bookings);
         assertTrue(bookings.stream().anyMatch(b -> b.getBookingId().equals(booking.getBookingId())));
     }
-
-
-
 }
