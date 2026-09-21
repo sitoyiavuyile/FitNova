@@ -23,9 +23,7 @@ public class BookingServiceImpl implements IBookingService {
     private final IAvailabilitySlotRepository slotRepository;
 
     @Autowired
-    public BookingServiceImpl(IBookingRepository bookingRepository,
-                              IUserRepository userRepository,
-                              IAvailabilitySlotRepository slotRepository) {
+    public BookingServiceImpl(IBookingRepository bookingRepository, IUserRepository userRepository, IAvailabilitySlotRepository slotRepository) {
         this.bookingRepository = bookingRepository;
         this.userRepository = userRepository;
         this.slotRepository = slotRepository;
@@ -68,13 +66,7 @@ public class BookingServiceImpl implements IBookingService {
             when = LocalDateTime.now();
         }
 
-        Booking toSave = new Booking.Builder()
-                .setBookingId(bookingId)
-                .setBookingDateTime(when)
-                .setStatus(booking.getStatus())
-                .setMember(member)
-                .setSlot(slot)
-                .build();
+        Booking toSave = new Booking.Builder().setBookingId(bookingId).setBookingDateTime(when).setStatus(booking.getStatus()).setMember(member).setSlot(slot).build();
 
         return bookingRepository.save(toSave);
     }
@@ -110,13 +102,7 @@ public class BookingServiceImpl implements IBookingService {
             when = LocalDateTime.now();
         }
 
-        Booking toSave = new Booking.Builder()
-                .setBookingId(booking.getBookingId())
-                .setBookingDateTime(when)
-                .setStatus(booking.getStatus())
-                .setMember(member)
-                .setSlot(slot)
-                .build();
+        Booking toSave = new Booking.Builder().setBookingId(booking.getBookingId()).setBookingDateTime(when).setStatus(booking.getStatus()).setMember(member).setSlot(slot).build();
 
         return bookingRepository.save(toSave);
     }

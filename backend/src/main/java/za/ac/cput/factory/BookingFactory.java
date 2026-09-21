@@ -7,17 +7,14 @@ import za.ac.cput.domain.enums.BookingStatus;
 import za.ac.cput.util.Helper;
 
 import java.time.LocalDateTime;
+
 /*
-* Avuyile Sitoyi
-* 240971051
-*
-* */
+ * Avuyile Sitoyi
+ * 240971051
+ *
+ * */
 public class BookingFactory {
-    public static Booking createBooking(String bookingId,
-                                        LocalDateTime bookingDateTime,
-                                        BookingStatus status,
-                                        User member,
-                                        AvailabilitySlot slot) {
+    public static Booking createBooking(String bookingId, LocalDateTime bookingDateTime, BookingStatus status, User member, AvailabilitySlot slot) {
 
         if (bookingDateTime == null) {
             return null;
@@ -35,13 +32,7 @@ public class BookingFactory {
 
         String validBookingId = Helper.isNullOrEmpty(bookingId) ? Helper.generateId() : bookingId;
 
-        return new Booking.Builder()
-                .setBookingId(validBookingId)
-                .setBookingDateTime(bookingDateTime)
-                .setStatus(status)
-                .setMember(member)
-                .setSlot(slot)
-                .build();
+        return new Booking.Builder().setBookingId(validBookingId).setBookingDateTime(bookingDateTime).setStatus(status).setMember(member).setSlot(slot).build();
     }
 
 }
